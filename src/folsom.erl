@@ -38,10 +38,10 @@ ensure_started(App) ->
 start_link() ->
     ensure_started(crypto),
     ensure_started(inets),
-    ensure_started(mochiweb),
-    application:set_env(webmachine, webmachine_logger_module,
-                        webmachine_logger),
-    ensure_started(webmachine),
+    %ensure_started(mochiweb),
+    %application:set_env(webmachine, webmachine_logger_module,
+    %                    webmachine_logger),
+    %ensure_started(webmachine),
     folsom_sup:start_link().
 
 %% @spec start() -> ok
@@ -49,18 +49,18 @@ start_link() ->
 start() ->
     ensure_started(crypto),
     ensure_started(inets),
-    ensure_started(mochiweb),
-    application:set_env(webmachine, webmachine_logger_module,
-                        webmachine_logger),
-    ensure_started(webmachine),
+    %ensure_started(mochiweb),
+    %application:set_env(webmachine, webmachine_logger_module,
+    %                    webmachine_logger),
+    %ensure_started(webmachine),
     application:start(folsom).
 
 %% @spec stop() -> ok
 %% @doc Stop the folsom server.
 stop() ->
     Res = application:stop(folsom),
-    application:stop(webmachine),
-    application:stop(mochiweb),
+    %application:stop(webmachine),
+    %application:stop(mochiweb),
     application:stop(inets),
     application:stop(crypto),
     Res.

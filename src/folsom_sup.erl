@@ -92,7 +92,8 @@ init([]) ->
                 worker,
                 dynamic},
 
-    Processes = [Web, EventMgr],
+    Processes = [EventMgr],
+    %Processes = [Web, EventMgr],
     {ok, { {one_for_one, 10, 10}, Processes} }.
 
 setup_ets_tables() ->
